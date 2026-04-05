@@ -391,7 +391,7 @@ export const quizzes: Quiz[] = [
     difficulty: "expert",
     description: "Only for true students of the shinobi world",
     questionCount: 12,
-    categories: ["Dojutsu", "Deep Lore", "Databook", "History", "Jutsu"],
+    categories: ["Dojutsu", "Deep Lore", "Databook", "History", "Jutsu", "Characters", "Weapons"],
     badgeLabel: "Kage Summit",
     startButtonText: "Enter the Summit",
     questions: [
