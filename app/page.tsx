@@ -14,6 +14,7 @@ const animeAccents: Record<string, string> = {
   "One Piece": "#E8472F",
   "Hunter x Hunter": "#4ade80",
   "Dragon Ball": "#f97316",
+  "Dragon Ball Z": "#facc15",
 };
 
 export default function HomePage() {
