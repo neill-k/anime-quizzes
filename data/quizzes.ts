@@ -28,7 +28,7 @@ export interface Quiz {
   slug: string;
   anime: string;
   title: string;
-  difficulty: "beginner" | "intermediate" | "expert" | "extreme";
+  difficulty: "beginner" | "intermediate" | "expert" | "extreme" | "apocalypse";
   description: string;
   questionCount: number;
   categories: string[];
@@ -854,6 +854,49 @@ export const quizzes: Quiz[] = [
       borderColor: "rgba(244, 114, 182, 0.28)",
       textPrimary: "#f5e8ff",
       textSecondary: "#d8b4fe",
+      font: "system-ui, -apple-system, sans-serif",
+    },
+  },
+  {
+    slug: "apocalypse-dragon-ball-z-heresy",
+    anime: "Dragon Ball Z",
+    title: "Dragon Ball Z Heresy Protocol",
+    difficulty: "apocalypse",
+    description: "An intentionally unhinged opinion gauntlet for fearless contrarians",
+    questionCount: 12,
+    categories: ["Hot Takes", "Arc Rankings", "Character Legacy", "Power Debates", "Fight Reviews", "Cultural Chaos"],
+    badgeLabel: "Heresy Class",
+    startButtonText: "Violate Consensus",
+    questions: [
+      { q: "Which DBZ arc is objectively the worst one to rewatch?", options: ["Garlic Jr. filler", "Majin Buu Saga", "Cell Saga", "Namek/Frieza Saga"], answer: 3, category: "Arc Rankings" },
+      { q: "Who is the most overrated character in all of DBZ?", options: ["Yamcha", "Mr. Satan", "Chi-Chi", "Vegeta"], answer: 3, category: "Character Legacy" },
+      { q: "What is the least iconic transformation in franchise history?", options: ["Super Saiyan Goku on Namek", "SSJ2 Gohan vs Cell", "Majin Vegeta", "Any non-canon movie form"], answer: 0, category: "Power Debates" },
+      { q: "Which fight is the most boring despite fan praise?", options: ["Goku vs Frieza", "Gohan vs Cell", "Vegeta vs Android 19", "Goku vs Majin Vegeta"], answer: 0, category: "Fight Reviews" },
+      { q: "Who contributes the least to DBZ's actual success?", options: ["Akira Toriyama", "Masako Nozawa", "Bruce Faulconer score fans", "Toei Animation"], answer: 0, category: "Cultural Chaos" },
+      { q: "Which character should have stayed the permanent lead after the Cell Games?", options: ["Gohan", "Future Trunks", "Piccolo", "Hercule"], answer: 3, category: "Character Legacy" },
+      { q: "What is the best way to watch DBZ for maximum narrative quality?", options: ["Original Japanese with subtitles", "Kai in Japanese", "Manga first, then anime highlights", "Muted clips on social media"], answer: 3, category: "Hot Takes" },
+      { q: "Which technique is secretly the most useless in serious battles?", options: ["Spirit Bomb", "Instant Transmission", "Kamehameha", "Fusion Dance"], answer: 1, category: "Power Debates" },
+      { q: "Who had the least meaningful growth over DBZ?", options: ["Vegeta", "Gohan", "Piccolo", "Krillin"], answer: 0, category: "Character Legacy" },
+      { q: "Which saga has the weakest villain writing?", options: ["Frieza Saga", "Cell Saga", "Buu Saga", "Saiyan Saga"], answer: 0, category: "Arc Rankings" },
+      { q: "What is DBZ's greatest storytelling mistake?", options: ["Bringing characters back with Dragon Balls", "Long charge-up scenes", "Not enough slice-of-life", "Letting Goku be popular"], answer: 3, category: "Hot Takes" },
+      { q: "What opinion best proves true mastery of this quiz?", options: ["Canon consistency matters most", "Character arcs are the core strength", "DBZ shaped shonen forever", "The fandom has been wrong about nearly everything"], answer: 3, category: "Cultural Chaos" },
+    ],
+    ranks: [
+      { title: "Consensus Destroyer", desc: "You answered every bad take like a true menace.", minPct: 90, color: "#fb7185" },
+      { title: "Heresy Specialist", desc: "Your contrarian power level is catastrophic.", minPct: 75, color: "#f43f5e" },
+      { title: "Debate Arsonist", desc: "You started fires in at least three timelines.", minPct: 50, color: "#e11d48" },
+      { title: "Forum Antagonist", desc: "You caused confusion with confidence.", minPct: 30, color: "#be123c" },
+      { title: "Reasonable Person", desc: "You still have standards. That's a problem here.", minPct: 0, color: "#64748b" },
+    ],
+    theme: {
+      bg: "linear-gradient(160deg, #2a0014 0%, #3f001d 40%, #140009 100%)",
+      cardBg: "linear-gradient(145deg, #4a0728, #22010f)",
+      accent: "#fb7185",
+      accentSecondary: "#f97316",
+      accentDim: "rgba(251, 113, 133, 0.14)",
+      borderColor: "rgba(249, 115, 22, 0.3)",
+      textPrimary: "#ffe4e6",
+      textSecondary: "#fda4af",
       font: "system-ui, -apple-system, sans-serif",
     },
   },

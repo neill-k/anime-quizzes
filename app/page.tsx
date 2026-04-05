@@ -9,6 +9,7 @@ const difficultyColors: Record<string, { bg: string; text: string; border: strin
   intermediate: { bg: "rgba(250, 204, 21, 0.1)", text: "#facc15", border: "rgba(250, 204, 21, 0.3)" },
   expert: { bg: "rgba(248, 113, 113, 0.1)", text: "#f87171", border: "rgba(248, 113, 113, 0.3)" },
   extreme: { bg: "rgba(192, 132, 252, 0.1)", text: "#c084fc", border: "rgba(192, 132, 252, 0.35)" },
+  apocalypse: { bg: "rgba(251, 113, 133, 0.1)", text: "#fb7185", border: "rgba(251, 113, 133, 0.35)" },
 };
 
 const animeAccents: Record<string, string> = {
