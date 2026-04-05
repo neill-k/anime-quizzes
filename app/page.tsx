@@ -13,6 +13,7 @@ const difficultyColors: Record<string, { bg: string; text: string; border: strin
 const animeAccents: Record<string, string> = {
   "One Piece": "#E8472F",
   "Hunter x Hunter": "#4ade80",
+  "Dragon Ball": "#f97316",
 };
 
 export default function HomePage() {
