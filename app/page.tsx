@@ -22,6 +22,7 @@ export default function HomePage() {
 
   const [selectedAnime, setSelectedAnime] = useState<string | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
+  const [animeQuery, setAnimeQuery] = useState("");
 
   const filteredQuizzes = useMemo(() => {
     return quizzes.filter((q) => {
@@ -30,6 +31,12 @@ export default function HomePage() {
       return true;
     });
   }, [selectedAnime, selectedDifficulty]);
+
+  const filteredAnimeList = useMemo(() => {
+    const query = animeQuery.trim().toLowerCase();
+    if (!query) return animeList;
+    return animeList.filter((anime) => anime.toLowerCase().includes(query));
+  }, [animeList, animeQuery]);
 
   return (
     <div
@@ -108,105 +115,126 @@ export default function HomePage() {
         >
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "12px",
-              alignItems: "center",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "14px",
             }}
           >
             {/* Anime filter */}
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "#475569", fontSize: "12px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }}>
+            <div
+              style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "10px",
+                padding: "12px",
+                background: "rgba(255,255,255,0.015)",
+              }}
+            >
+              <div style={{ color: "#475569", fontSize: "12px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "8px" }}>
                 Anime
-              </span>
-              <div style={{ display: "flex", gap: "6px" }}>
-                <button
-                  onClick={() => setSelectedAnime(null)}
-                  style={{
-                    padding: "6px 14px",
-                    fontSize: "13px",
-                    fontWeight: 600,
-                    borderRadius: "6px",
-                    border: `1px solid ${!selectedAnime ? "rgba(167,139,250,0.4)" : "rgba(255,255,255,0.08)"}`,
-                    background: !selectedAnime ? "rgba(167,139,250,0.12)" : "rgba(255,255,255,0.02)",
-                    color: !selectedAnime ? "#a78bfa" : "#64748b",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                  }}
-                >
-                  All
-                </button>
-                {animeList.map((anime) => (
-                  <button
-                    key={anime}
-                    onClick={() => setSelectedAnime(selectedAnime === anime ? null : anime)}
-                    style={{
-                      padding: "6px 14px",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      borderRadius: "6px",
-                      border: `1px solid ${selectedAnime === anime ? `${animeAccents[anime] || "#a78bfa"}66` : "rgba(255,255,255,0.08)"}`,
-                      background: selectedAnime === anime ? `${animeAccents[anime] || "#a78bfa"}1a` : "rgba(255,255,255,0.02)",
-                      color: selectedAnime === anime ? (animeAccents[anime] || "#a78bfa") : "#64748b",
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                  >
+              </div>
+              <input
+                type="text"
+                value={animeQuery}
+                onChange={(e) => setAnimeQuery(e.target.value)}
+                placeholder="Search anime..."
+                style={{
+                  width: "100%",
+                  marginBottom: "8px",
+                  padding: "8px 10px",
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(10,10,20,0.8)",
+                  color: "#cbd5e1",
+                  fontSize: "13px",
+                }}
+              />
+              <select
+                value={selectedAnime ?? ""}
+                onChange={(e) => setSelectedAnime(e.target.value || null)}
+                style={{
+                  width: "100%",
+                  padding: "9px 10px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(10,10,20,0.8)",
+                  color: selectedAnime ? (animeAccents[selectedAnime] || "#cbd5e1") : "#94a3b8",
+                  cursor: "pointer",
+                }}
+              >
+                <option value="">All anime</option>
+                {filteredAnimeList.map((anime) => (
+                  <option key={anime} value={anime}>
                     {anime}
-                  </button>
+                  </option>
                 ))}
+              </select>
+              <div style={{ marginTop: "8px", color: "#475569", fontSize: "11px" }}>
+                Showing {filteredAnimeList.length} of {animeList.length}
               </div>
             </div>
 
-            {/* Divider */}
-            <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.08)" }} />
-
             {/* Difficulty filter */}
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "#475569", fontSize: "12px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }}>
+            <div
+              style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "10px",
+                padding: "12px",
+                background: "rgba(255,255,255,0.015)",
+              }}
+            >
+              <div style={{ color: "#475569", fontSize: "12px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "8px" }}>
                 Difficulty
-              </span>
-              <div style={{ display: "flex", gap: "6px" }}>
-                <button
-                  onClick={() => setSelectedDifficulty(null)}
-                  style={{
-                    padding: "6px 14px",
-                    fontSize: "13px",
-                    fontWeight: 600,
-                    borderRadius: "6px",
-                    border: `1px solid ${!selectedDifficulty ? "rgba(167,139,250,0.4)" : "rgba(255,255,255,0.08)"}`,
-                    background: !selectedDifficulty ? "rgba(167,139,250,0.12)" : "rgba(255,255,255,0.02)",
-                    color: !selectedDifficulty ? "#a78bfa" : "#64748b",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                  }}
-                >
-                  All
-                </button>
-                {difficultyList.map((diff) => {
-                  const dc = difficultyColors[diff] || difficultyColors.beginner;
-                  return (
-                    <button
-                      key={diff}
-                      onClick={() => setSelectedDifficulty(selectedDifficulty === diff ? null : diff)}
-                      style={{
-                        padding: "6px 14px",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        borderRadius: "6px",
-                        border: `1px solid ${selectedDifficulty === diff ? dc.border : "rgba(255,255,255,0.08)"}`,
-                        background: selectedDifficulty === diff ? dc.bg : "rgba(255,255,255,0.02)",
-                        color: selectedDifficulty === diff ? dc.text : "#64748b",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      {diff}
-                    </button>
-                  );
-                })}
               </div>
+              <select
+                value={selectedDifficulty ?? ""}
+                onChange={(e) => setSelectedDifficulty(e.target.value || null)}
+                style={{
+                  width: "100%",
+                  padding: "9px 10px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(10,10,20,0.8)",
+                  color: selectedDifficulty ? (difficultyColors[selectedDifficulty]?.text || "#cbd5e1") : "#94a3b8",
+                  textTransform: "capitalize",
+                  cursor: "pointer",
+                }}
+              >
+                <option value="">All difficulties</option>
+                {difficultyList.map((diff) => (
+                  <option key={diff} value={diff}>
+                    {diff}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Reset */}
+            <div style={{ display: "flex", alignItems: "flex-end" }}>
+              <button
+                onClick={() => {
+                  setSelectedAnime(null);
+                  setSelectedDifficulty(null);
+                  setAnimeQuery("");
+                }}
+                disabled={!selectedAnime && !selectedDifficulty && !animeQuery}
+                style={{
+                  padding: "9px 14px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(255,255,255,0.02)",
+                  color: "#94a3b8",
+                  cursor: "pointer",
+                  opacity: !selectedAnime && !selectedDifficulty && !animeQuery ? 0.5 : 1,
+                }}
+              >
+                Reset filters
+              </button>
             </div>
           </div>
         </div>
