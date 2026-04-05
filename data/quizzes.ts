@@ -266,7 +266,7 @@ export const quizzes: Quiz[] = [
     badgeLabel: "Zodiac-Level Assessment",
     startButtonText: "Accept Challenge",
     questions: [
-      { q: "When Kurapika activates Emperor Time, what Nen category can he use at full efficiency?", options: ["Enhancer", "Specialist", "Conjurer", "Transmuter"], answer: 1, category: "Advanced Nen" },
+      { q: "When Kurapika activates Emperor Time, which Nen categories can he use at full efficiency?", options: ["All Nen categories", "Specialist only", "Conjuration and Specialization only", "Only categories adjacent to Conjuration"], answer: 0, category: "Advanced Nen" },
       { q: "What is the name of Isaac Netero's signature giant statue ability?", options: ["Dragon Dive", "Skill Hunter", "100-Type Guanyin Bodhisattva", "Godspeed"], answer: 2, category: "Advanced Nen" },
       { q: "What is the name of Chrollo's conjured book that steals Nen abilities?", options: ["Black Voice", "Bandit's Secret (Skill Hunter)", "Double Face", "Order Stamp"], answer: 1, category: "Yorknew" },
       { q: "Which identity did Illumi use during the Hunter Exam before revealing himself?", options: ["Gittarackur", "Gyro", "Hanzo", "Rammot"], answer: 0, category: "Deep Lore" },
@@ -485,7 +485,7 @@ export const quizzes: Quiz[] = [
       { q: "What is the true identity of the thief Chris?", options: ["A Crimson Demon spy", "The goddess Eris", "Darkness's sister", "A succubus agent"], answer: 1, category: "Characters" },
       { q: "What is Wiz's role among the Demon King's forces?", options: ["Royal Guard", "One of the Demon King's generals", "Head Spy", "Court Mage"], answer: 1, category: "Demon King Army" },
       { q: "What type of being is Vanir, who works in Wiz's magic item shop?", options: ["A lich", "A vampire", "A Duke of Hell (Archdemon)", "A cursed human"], answer: 2, category: "Characters" },
-      { q: "What is the name of the mobile fortress weapon that attacks Axel, which the party helps destroy?", options: ["The Juggernaut", "Destroyer", "Mobile Fortress Destroyer", "Death Machine"], answer: 2, category: "Plot" },
+      { q: "What is the common name of the mobile fortress weapon that attacks Axel, which the party helps destroy?", options: ["The Juggernaut", "Destroyer", "Mage Killer", "Death Machine"], answer: 1, category: "Plot" },
       { q: "Why does Aqua purifying any water she enters cause problems at hot springs?", options: ["It makes the water boiling hot", "It removes the minerals that give the springs their properties", "It freezes the water solid", "It turns the water into holy water that burns everyone"], answer: 1, category: "Lore" },
       { q: "What is the name of Megumin's younger sister?", options: ["Yunyun", "Komekko", "Funifura", "Dodonko"], answer: 1, category: "Characters" },
       { q: "What is Yunyun's most defining character trait?", options: ["Extreme arrogance", "Crippling loneliness and desire for friends", "Uncontrollable rage", "Pathological lying"], answer: 1, category: "Characters" },
