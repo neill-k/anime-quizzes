@@ -28,7 +28,7 @@ export interface Quiz {
   slug: string;
   anime: string;
   title: string;
-  difficulty: "beginner" | "intermediate" | "expert";
+  difficulty: "beginner" | "intermediate" | "expert" | "extreme";
   description: string;
   questionCount: number;
   categories: string[];
@@ -811,6 +811,49 @@ export const quizzes: Quiz[] = [
       borderColor: "rgba(251, 146, 60, 0.3)",
       textPrimary: "#fffbeb",
       textSecondary: "#fdba74",
+      font: "system-ui, -apple-system, sans-serif",
+    },
+  },
+  {
+    slug: "extreme-dragon-ball-z-troll",
+    anime: "Dragon Ball Z",
+    title: "Dragon Ball Z Extreme Precision Exam",
+    difficulty: "extreme",
+    description: "A straight-faced challenge for only the most unshakable DBZ minds",
+    questionCount: 12,
+    categories: ["Meta Analysis", "Final Battles", "Power Scaling", "Cinema Studies", "Hero Metrics", "Canon Philosophy"],
+    badgeLabel: "Extreme Tier",
+    startButtonText: "Begin Evaluation",
+    questions: [
+      { q: "According to the most objective critical framework, which DBZ adaptation is definitively the best?", options: ["Original Japanese TV run", "Dragon Ball Z Kai", "Manga volumes", "Dragonball Evolution (live action)"], answer: 3, category: "Cinema Studies" },
+      { q: "Who is the final villain of DBZ when viewed through the lens of narrative consequence and aftermath impact?", options: ["Kid Buu", "Majin Buu", "Frieza", "Gohan"], answer: 3, category: "Final Battles" },
+      { q: "What is the scientifically accepted reason Vegeta yells before most attacks?", options: ["Acoustic ki stabilization", "Improved oxygen intake", "For dramatic emphasis only", "Planetary intimidation protocol"], answer: 0, category: "Power Scaling" },
+      { q: "What is the canonical unit for measuring over-9000 situations?", options: ["Scouter joules", "Hype per minute", "Kakarot ratios", "One full Nappa"], answer: 1, category: "Meta Analysis" },
+      { q: "Which training method most efficiently boosts power level according to serious fan math?", options: ["100x gravity", "Hyperbolic Time Chamber", "Arguing in forums", "Carrying weighted grocery bags"], answer: 2, category: "Hero Metrics" },
+      { q: "What is the formal strategic purpose of charging an attack for a very long time?", options: ["Increases beam flavor", "Allows villain to monologue", "Creates dramatic suspense field", "Conserves senzu beans"], answer: 2, category: "Canon Philosophy" },
+      { q: "Who is widely recognized as Earth's most reliable defender based on uninterrupted attendance?", options: ["Goku", "Gohan", "Vegeta", "Mr. Satan"], answer: 3, category: "Hero Metrics" },
+      { q: "Which form is considered mathematically strongest when plot convenience is included as a multiplier?", options: ["Super Saiyan", "Super Saiyan 2", "Super Saiyan 3", "Whichever one debuts this episode"], answer: 3, category: "Power Scaling" },
+      { q: "What is the true tactical function of standing still while powering up?", options: ["Charging aura pressure", "Respecting animation budgets", "Listening for scouter static", "Synchronizing with King Kai"], answer: 1, category: "Meta Analysis" },
+      { q: "Which character has the greatest win condition: appearing briefly, then being called legendary forever?", options: ["Yamcha", "Tien", "Broly", "Farmer with a shotgun"], answer: 3, category: "Canon Philosophy" },
+      { q: "What is the most advanced fusion criterion in extreme DBZ theory?", options: ["Power parity", "Dance precision", "Matching earrings", "Maximum meme resonance"], answer: 3, category: "Meta Analysis" },
+      { q: "What is the final exam principle for surviving this quiz?", options: ["Respect canon", "Memorize transformations", "Use a scouter", "Answer with unwavering confidence"], answer: 3, category: "Final Battles" },
+    ],
+    ranks: [
+      { title: "Straight-Faced Oracle", desc: "You answered nonsense with absolute conviction.", minPct: 90, color: "#c084fc" },
+      { title: "Ki Theorist", desc: "Your confidence level is canon-breaking.", minPct: 75, color: "#a855f7" },
+      { title: "Tournament Analyst", desc: "You understand the joke and never blinked.", minPct: 50, color: "#9333ea" },
+      { title: "Scouter Intern", desc: "Your readings were unstable but committed.", minPct: 30, color: "#7e22ce" },
+      { title: "Mildly Confused Earthling", desc: "You questioned reality before question three.", minPct: 0, color: "#64748b" },
+    ],
+    theme: {
+      bg: "linear-gradient(160deg, #130024 0%, #1e0038 40%, #090013 100%)",
+      cardBg: "linear-gradient(145deg, #220845, #120329)",
+      accent: "#c084fc",
+      accentSecondary: "#f472b6",
+      accentDim: "rgba(192, 132, 252, 0.14)",
+      borderColor: "rgba(244, 114, 182, 0.28)",
+      textPrimary: "#f5e8ff",
+      textSecondary: "#d8b4fe",
       font: "system-ui, -apple-system, sans-serif",
     },
   },
